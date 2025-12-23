@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <path fill="#2965f1" d="M9 2l5 55 18 5 18-5 5-55H9z"></path>
+  <path fill="#379ad6" d="M32 8h18l-4 45-14 4V8z"></path>
+  <text x="18" y="44" fill="#fff" font-size="16" font-family="Arial" font-weight="bold">CSS</text>
+</svg>
