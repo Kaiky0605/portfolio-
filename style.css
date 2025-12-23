@@ -308,3 +308,184 @@ footer {
   background-color: #7dd3fc;
   transform: scale(1.05);
 }
+
+/* ---------- 🔹 RESPONSIVIDADE (AJUSTES PARA CELULAR) ---------- */
+@media (max-width: 768px) {
+  /* CABEÇALHO */
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .menu {
+    flex-direction: column;
+    width: 100%;
+    background-color: #1e293b;
+    border-radius: 8px;
+    padding: 0.8rem 0;
+  }
+
+  .menu a {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .menu a:last-child {
+    border-bottom: none;
+  }
+
+  /* SOBRE */
+  .sobre {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .foto-container {
+    order: -1;
+  }
+
+  .foto-perfil {
+    width: 180px;
+    height: 180px;
+  }
+
+  .sobre-texto {
+    font-size: 0.95rem;
+  }
+
+  /* LINKS DE CONTATO */
+  .contatos {
+    justify-content: center;
+  }
+
+  /* EXPERIÊNCIA E FORMAÇÃO */
+  .card-container {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+
+  /* HABILIDADES */
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+  }
+
+  .skill-card {
+    padding: 1rem;
+  }
+
+  .skill-card img {
+    width: 40px;
+    height: 40px;
+  }
+
+  /* CURSOS */
+  .certificados {
+    grid-template-columns: 1fr;
+  }
+
+  .cert-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cert-info h3 {
+    font-size: 1rem;
+  }
+
+  /* RODAPÉ */
+  footer {
+    font-size: 0.85rem;
+  }
+}
+
+/* ---------- 🔹 AJUSTES PARA TELAS MUITO PEQUENAS (ATÉ 480px) ---------- */
+@media (max-width: 480px) {
+  body {
+    font-size: 0.9rem;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  h2 {
+    font-size: 1.1rem;
+  }
+
+  .foto-perfil {
+    width: 150px;
+    height: 150px;
+  }
+
+  .contato-link {
+    flex: 1 1 100%;
+    justify-content: center;
+  }
+
+  .skill-card span {
+    font-size: 0.85rem;
+  }
+
+  .btn-cert,
+  .btn-diploma {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+/* ---------- MENU HAMBÚRGUER (MOBILE) ---------- */
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  color: #38bdf8;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.menu-toggle:hover {
+  color: #7dd3fc;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #1e293b;
+    border-radius: 8px;
+    margin-top: 0.5rem;
+  }
+
+  .menu.active {
+    display: flex;
+  }
+
+  .menu a {
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .menu a:last-child {
+    border-bottom: none;
+  }
+}

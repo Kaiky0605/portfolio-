@@ -10,18 +10,25 @@
 
     <canvas id="bg-animation"></canvas>
     <!-- ANIMAÇÃO DE FUNDO -->
-
+<!-- ANIMAÇÃO DE FUNDO -->
 <header>
   <nav class="navbar">
-    <a href="#topo" class="logo">Portfólio Profissional</a>
-    <ul class="menu">
-      <li><a href="#sobre">Sobre</a></li>
-      <li><a href="#experiencia">Experiência</a></li>
-      <li><a href="#formacao">Formação</a></li>
-      <li><a href="#habilidades">Habilidades</a></li>
-      <li><a href="#cursos">Cursos</a></li>
-    </ul>
-  </nav>
+  <a href="#topo" class="logo">Portfólio Profissional</a>
+  
+  <!-- Botão hamburguer -->
+  <div class="menu-toggle" id="menu-toggle">
+    ☰
+  </div>
+
+  <ul class="menu" id="menu">
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#experiencia">Experiência</a></li>
+    <li><a href="#formacao">Formação</a></li>
+    <li><a href="#habilidades">Habilidades</a></li>
+    <li><a href="#cursos">Cursos</a></li>
+  </ul>
+</nav>
+
 </header>
 
 
@@ -221,5 +228,14 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('menu');
+
+  toggle.addEventListener('click', () => {
+    menu.classList.toggle('active');
+  });
+</script>
+
   </body>
 </html>
