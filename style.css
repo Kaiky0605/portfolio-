@@ -1,8 +1,17 @@
+/* ===== CORES PADRÃO ===== */
+:root {
+  --bg-dark: #0b1324;
+  --bg-card: #0f1b33;
+  --blue-neon: #38bdf8;
+  --text-main: #ffffff;
+  --text-muted: #cbd5e1;
+}
+
 /* ---------- GERAL ---------- */
 body {
   font-family: "Poppins", sans-serif;
-  background-color: #0f172a;
-  color: #f1f5f9;
+  background-color: var(--bg-dark);
+  color: var(--text-main);
   margin: 0;
   padding: 0;
   overflow-x: hidden;
@@ -16,7 +25,7 @@ body {
   width: 100%;
   height: 100%;
   z-index: -1;
-  background: #0f172a;
+  background: var(--bg-dark);
 }
 
 /* ---------- CABEÇALHO ---------- */
@@ -38,7 +47,7 @@ header {
 
 .logo {
   font-size: 1.6rem;
-  color: #38bdf8;
+  color: var(--blue-neon);
   font-weight: 700;
   text-decoration: none;
   transition: color 0.3s;
@@ -55,14 +64,14 @@ header {
 }
 
 .menu a {
-  color: #f1f5f9;
+  color: var(--text-main);
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s;
 }
 
 .menu a:hover {
-  color: #38bdf8;
+  color: var(--blue-neon);
 }
 
 /* ---------- SEÇÕES ---------- */
@@ -73,7 +82,7 @@ header {
 }
 
 h2 {
-  border-bottom: 2px solid #38bdf8;
+  border-bottom: 2px solid var(--blue-neon);
   display: inline-block;
   margin-bottom: 1.5rem;
 }
@@ -98,13 +107,13 @@ h2 {
   height: 250px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid #38bdf8;
+  border: 3px solid var(--blue-neon);
   transition: transform 0.4s, box-shadow 0.4s;
 }
 
 .foto-perfil:hover {
   transform: scale(1.08);
-  box-shadow: 0 0 25px #38bdf8;
+  box-shadow: 0 0 25px var(--blue-neon);
 }
 
 .sobre-texto {
@@ -152,7 +161,7 @@ footer {
   align-items: center;
   gap: 0.5rem;
   background-color: #1e293b;
-  color: #f1f5f9;
+  color: var(--text-main);
   padding: 0.6rem 1rem;
   border-radius: 8px;
   text-decoration: none;
@@ -184,16 +193,16 @@ footer {
 
 /* ---------- FORMAÇÃO ACADÊMICA ---------- */
 #formacao .card {
-  border-left: 4px solid #38bdf8;
+  border-left: 4px solid var(--blue-neon);
 }
 
 #formacao h3 {
-  color: #38bdf8;
+  color: var(--blue-neon);
 }
 
 #formacao p {
   margin: 0.3rem 0;
-  color: #cbd5e1;
+  color: var(--text-muted);
 }
 
 /* ---------- BOTÕES DE DIPLOMAS ---------- */
@@ -201,8 +210,8 @@ footer {
   display: inline-block;
   margin-top: 1rem;
   padding: 0.5rem 1rem;
-  background-color: #38bdf8;
-  color: #0f172a;
+  background-color: var(--blue-neon);
+  color: var(--bg-dark);
   font-weight: 600;
   border-radius: 8px;
   text-decoration: none;
@@ -244,12 +253,12 @@ footer {
 .skill-card span {
   font-size: 1rem;
   font-weight: 500;
-  color: #f1f5f9;
+  color: var(--text-main);
 }
 
 .skill-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 0 20px #38bdf8;
+  box-shadow: 0 0 20px var(--blue-neon);
 }
 
 /* ---------- CURSOS E CERTIFICADOS ---------- */
@@ -276,20 +285,14 @@ footer {
   box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
 }
 
-.cert-icon img {
-  width: 50px;
-  height: 50px;
-  filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.6));
-}
-
 .cert-info h3 {
-  color: #38bdf8;
+  color: var(--blue-neon);
   font-size: 1.1rem;
   margin-bottom: 0.3rem;
 }
 
 .cert-info p {
-  color: #cbd5e1;
+  color: var(--text-muted);
   font-size: 0.9rem;
   margin-bottom: 0.8rem;
 }
@@ -297,8 +300,8 @@ footer {
 .btn-cert {
   display: inline-block;
   padding: 0.5rem 1rem;
-  background-color: #38bdf8;
-  color: #0f172a;
+  background-color: var(--blue-neon);
+  color: var(--bg-dark);
   font-weight: 600;
   border-radius: 8px;
   text-decoration: none;
@@ -310,25 +313,218 @@ footer {
   transform: scale(1.05);
 }
 
-/* ---------- 🔹 RESPONSIVIDADE (AJUSTES PARA CELULAR) ---------- */
-.menu-toggle {
+/* ================= PROJETOS ================= */
+.projetos {
+  text-align: center;
+  background: var(--bg-dark);
+}
+
+.titulo-projetos {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+}
+
+.titulo-projetos span {
+  color: var(--blue-neon);
+}
+
+.subtitulo-projetos {
+  color: var(--text-muted);
+  margin-bottom: 50px;
+}
+
+.projetos-container {
+  position: relative;
+  max-width: 900px;
+  width: 90%;
+  margin: auto;
+  overflow: hidden;
+}
+
+.projetos-slider {
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.projetos-slider::-webkit-scrollbar {
   display: none;
 }
 
+/* ===== PROJETO CARD ===== */
+.projeto-card {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 30px;
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  box-sizing: border-box;
+  background: var(--bg-card);
+  color: var(--text-main);
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Imagem do projeto */
+.projeto-imagem img {
+  width: 300px;
+  height: 200px;
+  border-radius: 12px;
+  object-fit: contain;
+  background-color: var(--bg-card);
+  flex-shrink: 0;
+}
+
+/* Texto do projeto */
+.projeto-info {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex: 1;
+}
+
+/* Título */
+.projeto-info h3 {
+  font-size: 2rem;
+  margin: 0;
+  color: var(--text-main);
+}
+
+/* Descrição */
+.projeto-info p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* Tecnologias */
+.techs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.techs span {
+  display: inline-block;
+  background: #0f172a;
+  color: var(--blue-neon);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+/* Botão do projeto */
+.btn-codigo {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 12px 25px;
+  background: var(--blue-neon);
+  color: #000;
+  border-radius: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s;
+  width: fit-content;
+}
+
+.btn-codigo:hover {
+  filter: brightness(1.1);
+}
+
+/* BOLINHAS DE NAVEGAÇÃO */
+.projetos-dots {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.projetos-dots button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(56, 189, 248, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.projetos-dots button.ativo {
+  background: var(--blue-neon);
+  transform: scale(1.4);
+}
+
+/* Botões de navegação */
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: 2px solid var(--blue-neon);
+  color: var(--blue-neon);
+  font-size: 2.5rem;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.nav-btn:hover {
+  background: var(--blue-neon);
+  color: #000;
+}
+
+.nav-btn.left {
+  left: -40px;
+}
+
+.nav-btn.right {
+  right: -40px;
+}
+
+/* ---------- TYPING EFFECT ---------- */
+#typing {
+  font-size: 2rem;
+  color: var(--blue-neon);
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid var(--blue-neon);
+  width: fit-content;
+}
+
+@keyframes blink {
+  0%,
+  50%,
+  100% {
+    border-color: var(--blue-neon);
+  }
+  25%,
+  75% {
+    border-color: transparent;
+  }
+}
+
+#typing {
+  animation: blink 1s infinite;
+}
+
+/* ---------- RESPONSIVIDADE ---------- */
 @media (max-width: 768px) {
   .menu-toggle {
-    font-size: 2rem; /* AUMENTA O ÍCONE */
-    color: #38bdf8;
+    display: block;
+    font-size: 2rem;
+    color: var(--blue-neon);
     cursor: pointer;
-    padding: 0.5rem 0.8rem; /* AUMENTA ÁREA DE TOQUE */
+    padding: 0.5rem 0.8rem;
     border-radius: 8px;
     line-height: 1;
     transition: background-color 0.3s, color 0.3s;
-  }
-
-  .menu-toggle:hover {
-    background-color: rgba(56, 189, 248, 0.15);
-    color: #7dd3fc;
   }
 
   .menu {
@@ -337,6 +533,8 @@ footer {
     top: 100%;
     left: 0;
     width: 100%;
+    max-height: 80vh;
+    overflow-y: auto;
     background-color: #1e293b;
     flex-direction: column;
     border-radius: 0 0 12px 12px;
@@ -349,24 +547,20 @@ footer {
   }
 
   .menu a {
-    padding: 1.2rem 1rem; /* MAIS ESPAÇO */
-    font-size: 1.05rem; /* TEXTO MAIOR */
+    padding: 1.2rem 1rem;
+    font-size: 1.05rem;
     font-weight: 500;
-    letter-spacing: 0.3px;
+    text-align: center;
   }
 
-  .menu li {
-    width: 100%;
-  }
-
-  .menu li:not(:last-child) {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  }
-
-  /* SOBRE */
   .sobre {
     flex-direction: column;
     text-align: center;
+  }
+
+  #typing {
+    font-size: 1.3rem;
+    border-right: 2px solid var(--blue-neon);
   }
 
   .foto-container {
@@ -382,12 +576,10 @@ footer {
     font-size: 0.95rem;
   }
 
-  /* LINKS DE CONTATO */
   .contatos {
     justify-content: center;
   }
 
-  /* EXPERIÊNCIA E FORMAÇÃO */
   .card-container {
     grid-template-columns: 1fr;
   }
@@ -397,7 +589,6 @@ footer {
     font-size: 0.95rem;
   }
 
-  /* HABILIDADES */
   .skills-grid {
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     gap: 1rem;
@@ -412,7 +603,6 @@ footer {
     height: 40px;
   }
 
-  /* CURSOS */
   .certificados {
     grid-template-columns: 1fr;
   }
@@ -422,41 +612,47 @@ footer {
     text-align: center;
   }
 
-  .cert-info h3 {
-    font-size: 1rem;
-  }
-
-  /* RODAPÉ */
-  footer {
-    font-size: 0.85rem;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-
-  .menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: #1e293b;
+  .projeto-card {
     flex-direction: column;
-    border-radius: 0 0 8px 8px;
+    min-width: 90%;
+    border-radius: 14px;
+    padding: 20px;
   }
 
-  .menu.active {
-    display: flex;
+  .projeto-imagem img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 20px;
   }
 
-  .menu a {
-    padding: 1rem;
+  .projeto-info {
+    width: 100%;
     text-align: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
-  .menu a:last-child {
-    border-bottom: none;
+  .projeto-info h3 {
+    font-size: 1.5rem;
+  }
+
+  .projeto-info p {
+    font-size: 0.95rem;
+  }
+
+  .techs span {
+    font-size: 0.75rem;
+    padding: 4px 10px;
+  }
+
+  .btn-codigo {
+    width: 100%;
+    max-width: 250px;
+    margin: 0 auto;
+    padding: 12px 0;
+    text-align: center;
+  }
+
+  .nav-btn {
+    display: none;
   }
 }

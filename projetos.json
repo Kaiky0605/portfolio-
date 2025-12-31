@@ -1,0 +1,23 @@
+[
+  {
+    "titulo": "Smart Loja",
+    "descricao": "Smart Loja é um app web mobile feito com Framework7, JavaScript e jQuery. Simula uma loja online com navegação SPA, carrinho funcional, dados em JSON, layout responsivo e armazenamento em localStorage. Ideal para estudar a arquitetura de e-commerces modernos com HTML5, CSS3 e JS puro.",
+    "imagem": "Imagens/smartLoja.jpg",
+    "link": "https://github.com/Kaiky0605/smart-loja",
+    "tecnologias": ["JavaScript", "CSS", "HTML", "Framework7", "Android Studio"]
+  },
+  {
+    "titulo": "To-Do List",
+    "descricao": "Este é um projeto simples de gerenciamento de tarefas (To-Do List) desenvolvido com HTML, CSS e JavaScript. Ele permite adicionar, concluir e remover tarefas, com persistência de dados usando o Local Storage, para que as tarefas permaneçam salvas mesmo após o fechamento do navegador.",
+    "imagem": "Imagens/listaTarefas.png",
+    "link": "https://github.com/Kaiky0605/Lista-de-Tarefas",
+    "tecnologias": ["HTML", "CSS", "JavaScript"]
+  },
+  {
+    "titulo": "Previsão do Tempo",
+    "descricao": "Este é um projeto simples de consulta de condições meteorológicas, desenvolvido com HTML, CSS, e TypeScript, utilizando a API do OpenWeatherMap para obter informações sobre o clima em tempo real.",
+    "imagem": "Imagens/CondicaoTempo.png",
+    "link": "https://github.com/Kaiky0605/Condicao-do-tempo",
+    "tecnologias": ["TypeScript", "HTML", "CSS", "API"]
+  }
+]

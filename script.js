@@ -93,8 +93,158 @@ window.addEventListener("resize", () => {
   init();
 });
 
+let indexProjeto = 0;
+let autoplayProjetos;
+const autoplayIntervalo = 4000;
+
+/* ===== MOVER PROJETOS ===== */
+function moverProjetos(direcao) {
+  const slider = document.getElementById("projetosSlider");
+  const card = slider.querySelector(".projeto-card");
+  const gap = 30;
+  const largura = card.offsetWidth + gap;
+
+  indexProjeto += direcao;
+
+  if (indexProjeto < 0) indexProjeto = slider.children.length - 1;
+  if (indexProjeto >= slider.children.length) indexProjeto = 0;
+
+  slider.scrollTo({
+    left: indexProjeto * largura,
+    behavior: "smooth",
+  });
+
+  atualizarDots();
+}
+
+/* ===== DOTS ===== */
+function criarDots() {
+  const slider = document.getElementById("projetosSlider");
+  const dotsContainer = document.getElementById("projetosDots");
+
+  dotsContainer.innerHTML = "";
+
+  [...slider.children].forEach((_, i) => {
+    const dot = document.createElement("button");
+
+    dot.addEventListener("click", () => {
+      indexProjeto = i;
+      moverProjetos(0);
+      reiniciarAutoplay();
+    });
+
+    dotsContainer.appendChild(dot);
+  });
+
+  atualizarDots();
+}
+
+function atualizarDots() {
+  const dots = document.querySelectorAll("#projetosDots button");
+  dots.forEach((dot, i) => {
+    dot.classList.toggle("ativo", i === indexProjeto);
+  });
+}
+
+/* ===== SINCRONIZA COM SCROLL MANUAL ===== */
+function sincronizarScroll() {
+  const slider = document.getElementById("projetosSlider");
+  const card = slider.querySelector(".projeto-card");
+  const gap = 30;
+  const largura = card.offsetWidth + gap;
+
+  indexProjeto = Math.round(slider.scrollLeft / largura);
+  atualizarDots();
+}
+
+/* ===== AUTOPLAY ===== */
+function iniciarAutoplay() {
+  autoplayProjetos = setInterval(() => {
+    moverProjetos(1);
+  }, autoplayIntervalo);
+}
+
+function pararAutoplay() {
+  clearInterval(autoplayProjetos);
+}
+
+function reiniciarAutoplay() {
+  pararAutoplay();
+  iniciarAutoplay();
+}
+
+async function carregarProjetos() {
+  const slider = document.getElementById("projetosSlider");
+
+  try {
+    const response = await fetch("projetos.json");
+    const projetos = await response.json();
+
+    slider.innerHTML = "";
+
+    projetos.forEach((projeto) => {
+      const card = document.createElement("div");
+      card.className = "projeto-card";
+
+      card.innerHTML = `
+        <div class="projeto-imagem">
+          <img src="${projeto.imagem}" alt="${projeto.titulo}">
+        </div>
+
+        <div class="projeto-info">
+          <h3>${projeto.titulo}</h3>
+          <p>${projeto.descricao}</p>
+
+          <div class="techs">
+            ${projeto.tecnologias.map((t) => `<span>${t}</span>`).join("")}
+          </div>
+
+          <a href="${
+            projeto.link
+          }" target="_blank" class="btn-codigo">Ver projeto</a>
+        </div>
+      `;
+
+      slider.appendChild(card);
+    });
+
+    // IMPORTANTE
+    criarDots();
+    iniciarAutoplay();
+  } catch (error) {
+    console.error("Erro ao carregar projetos:", error);
+  }
+}
+
+/* ===== INIT GERAL ===== */
 document.addEventListener("DOMContentLoaded", () => {
   init();
   animate();
   navBar();
+
+  const slider = document.getElementById("projetosSlider");
+
+  carregarProjetos();
+
+  slider.addEventListener("scroll", sincronizarScroll);
+  slider.addEventListener("mouseenter", pararAutoplay);
+  slider.addEventListener("mouseleave", iniciarAutoplay);
+  slider.addEventListener("touchstart", pararAutoplay);
+  slider.addEventListener("touchend", iniciarAutoplay);
+});
+
+const texto = "Olá, sou Kaiky da Silva Barbosa,";
+const typingElement = document.getElementById("typing");
+let index = 0;
+
+function escrever() {
+  if (index < texto.length) {
+    typingElement.textContent += texto.charAt(index);
+    index++;
+    setTimeout(escrever, 100); // 100ms entre cada letra
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  escrever();
 });
