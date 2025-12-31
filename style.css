@@ -33,6 +33,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
+  position: relative;
 }
 
 .logo {
@@ -310,32 +311,56 @@ footer {
 }
 
 /* ---------- 🔹 RESPONSIVIDADE (AJUSTES PARA CELULAR) ---------- */
+.menu-toggle {
+  display: none;
+}
+
 @media (max-width: 768px) {
-  /* CABEÇALHO */
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
+  .menu-toggle {
+    font-size: 2rem; /* AUMENTA O ÍCONE */
+    color: #38bdf8;
+    cursor: pointer;
+    padding: 0.5rem 0.8rem; /* AUMENTA ÁREA DE TOQUE */
+    border-radius: 8px;
+    line-height: 1;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  .menu-toggle:hover {
+    background-color: rgba(56, 189, 248, 0.15);
+    color: #7dd3fc;
   }
 
   .menu {
-    flex-direction: column;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
     width: 100%;
     background-color: #1e293b;
-    border-radius: 8px;
-    padding: 0.8rem 0;
+    flex-direction: column;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    padding: 0.5rem 0;
+  }
+
+  .menu.active {
+    display: flex;
   }
 
   .menu a {
-    display: block;
-    width: 100%;
-    text-align: center;
-    padding: 0.6rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.2rem 1rem; /* MAIS ESPAÇO */
+    font-size: 1.05rem; /* TEXTO MAIOR */
+    font-weight: 500;
+    letter-spacing: 0.3px;
   }
 
-  .menu a:last-child {
-    border-bottom: none;
+  .menu li {
+    width: 100%;
+  }
+
+  .menu li:not(:last-child) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
 
   /* SOBRE */
@@ -405,62 +430,6 @@ footer {
   footer {
     font-size: 0.85rem;
   }
-}
-
-/* ---------- 🔹 AJUSTES PARA TELAS MUITO PEQUENAS (ATÉ 480px) ---------- */
-@media (max-width: 480px) {
-  body {
-    font-size: 0.9rem;
-  }
-
-  .logo {
-    font-size: 1.2rem;
-  }
-
-  h2 {
-    font-size: 1.1rem;
-  }
-
-  .foto-perfil {
-    width: 150px;
-    height: 150px;
-  }
-
-  .contato-link {
-    flex: 1 1 100%;
-    justify-content: center;
-  }
-
-  .skill-card span {
-    font-size: 0.85rem;
-  }
-
-  .btn-cert,
-  .btn-diploma {
-    font-size: 0.85rem;
-    padding: 0.4rem 0.8rem;
-  }
-}
-
-/* ---------- MENU HAMBÚRGUER (MOBILE) ---------- */
-.menu-toggle {
-  display: none;
-  font-size: 1.8rem;
-  color: #38bdf8;
-  cursor: pointer;
-  transition: color 0.3s;
-}
-
-.menu-toggle:hover {
-  color: #7dd3fc;
-}
-
-@media (max-width: 768px) {
-  .navbar {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
 
   .menu-toggle {
     display: block;
@@ -468,11 +437,13 @@ footer {
 
   .menu {
     display: none;
-    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
     width: 100%;
     background-color: #1e293b;
-    border-radius: 8px;
-    margin-top: 0.5rem;
+    flex-direction: column;
+    border-radius: 0 0 8px 8px;
   }
 
   .menu.active {

@@ -59,6 +59,24 @@ function connect() {
   }
 }
 
+function navBar() {
+  const menuToggle = document.getElementById("menu-toggle");
+  const menu = document.getElementById("menu");
+  const menuLinks = document.querySelectorAll("#menu a");
+
+  // Abrir / fechar menu pelo hamburguer
+  menuToggle.addEventListener("click", () => {
+    menu.classList.toggle("active");
+  });
+
+  // Fechar menu ao clicar em qualquer link (mobile)
+  menuLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      menu.classList.remove("active");
+    });
+  });
+}
+
 function animate() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   particlesArray.forEach((p) => {
@@ -75,5 +93,8 @@ window.addEventListener("resize", () => {
   init();
 });
 
-init();
-animate();
+document.addEventListener("DOMContentLoaded", () => {
+  init();
+  animate();
+  navBar();
+});
