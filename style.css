@@ -69,6 +69,9 @@ header {
   font-weight: 500;
   transition: color 0.3s;
 }
+.menu-toggle {
+  display: none !important; /* força esconder no deskvartop */
+}
 
 .menu a:hover {
   color: var(--blue-neon);
@@ -517,7 +520,7 @@ footer {
 /* ---------- RESPONSIVIDADE ---------- */
 @media (max-width: 768px) {
   .menu-toggle {
-    display: block;
+    display: block !important;
     font-size: 2rem;
     color: var(--blue-neon);
     cursor: pointer;
